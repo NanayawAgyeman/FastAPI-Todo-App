@@ -3,7 +3,6 @@ from sqlalchemy import Integer
 from sqlalchemy import String
 from sqlalchemy.orm import Session
 from database import Base
-# from pydantic import BaseModel
 from datetime import datetime
 
 
@@ -16,12 +15,6 @@ class ToDo(Base):
     created_at = Column(datetime)
     modified_at = Column(datetime)
 
-# class ToDo(BaseModel):
-#     id: int
-#     title: str
-#     details: str
-#     created_at: datetime
-#     modified_at: datetime
 
 def create_todo(db: Session, title: str, details: str):
     todo = ToDo(title=title, details=details)
