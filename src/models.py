@@ -5,7 +5,7 @@ from src.database import db
 from datetime import datetime
 
 
-class ToDo(Base):
+class TodoModel(Base):
     __tablename__ = 'todos'
 
     id = Column(Integer, primary_key=True, index=True)
@@ -33,12 +33,10 @@ class ToDo(Base):
         return db.session.query(cls).filter_by(id=todo_item_id).first()
     
     @classmethod
-    def get_all_todo_items_by_id(cls, id: int) -> list:
+    def get_all_todo_items_by_id(cls) -> list:
         return db.session.query(cls).all()
     
-    def update_todo(self, title, details):
-        self.title = title
-        self.details = details
+    def update_todo(self):
         db.session.commit()
 
     def delete_todo(self):

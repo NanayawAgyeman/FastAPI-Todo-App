@@ -2,7 +2,7 @@ from fastapi import Depends
 from fastapi import FastAPI, Form
 from fastapi import Request, Response
 from fastapi.responses import HTMLResponse
-from src.todorouter import router
+from src.todorouter import todorouter
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.gzip import GZipMiddleware
 from starlette.middleware.cors import CORSMiddleware
@@ -15,7 +15,8 @@ app = FastAPI(
 
 templates = Jinja2Templates(directory="templates")
 
-app.include_router(router)
+# register routes here
+app.include_router(todorouter)
 
 app.add_middleware(
     CORSMiddleware,
@@ -24,6 +25,7 @@ app.add_middleware(
     allow_credentials=True,
 )
 app.add_middleware(GZipMiddleware, minimum_size=1000)
+
 
 @app.get("/")
 async def index():
