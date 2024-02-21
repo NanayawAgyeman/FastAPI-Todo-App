@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
-from database import SessionLocal
-from models import ToDo
+from src.database import SessionLocal
+from src.models import ToDo
 from pydantic import BaseModel
 from typing import List
 

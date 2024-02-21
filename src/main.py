@@ -2,7 +2,7 @@ from fastapi import Depends
 from fastapi import FastAPI, Form
 from fastapi import Request, Response
 from fastapi.responses import HTMLResponse
-from router import router
+from src.router import router
 from fastapi.templating import Jinja2Templates
 
 app = FastAPI(
