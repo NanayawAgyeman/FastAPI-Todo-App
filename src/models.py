@@ -22,6 +22,7 @@ class ToDo(Base):
             "modified_at": self.modified_at,
         }
 
+    @staticmethod
     def create_todo(db: Session, title: str, details: str):
         todo = ToDo(title=title, details=details)
         db.add(todo)
